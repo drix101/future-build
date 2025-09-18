@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { fadeIn, staggerContainer } from '../utils/motionVariants'
 import { ExternalLink, Calendar, MapPin, ArrowRight } from 'lucide-react'

@@ -1,4 +1,3 @@
-import React from 'react'
 import { Facebook, Twitter, Instagram, Linkedin, ArrowUp, Phone, Mail, MapPin, Clock } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { fadeIn, staggerContainer } from '../utils/motionVariants'

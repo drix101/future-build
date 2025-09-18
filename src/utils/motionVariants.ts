@@ -53,7 +53,7 @@ export const textVariant = (delay: number = 0): Variants => {
 
 export const slideIn = (
   direction: 'up' | 'down' | 'left' | 'right',
-  type: string,
+  type: 'tween' | 'spring' | 'keyframes' | 'inertia' = 'tween',
   delay: number,
   duration: number,
 ): Variants => {
