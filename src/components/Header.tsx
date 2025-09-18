@@ -3,7 +3,11 @@ import { MenuIcon, XIcon } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { fadeIn } from '../utils/motionVariants'
 
-export function Header() {
+interface HeaderProps {
+  hasTopInfoBar: boolean
+}
+
+export function Header({ hasTopInfoBar }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const toggleMenu = () => { 
@@ -12,7 +16,9 @@ export function Header() {
 
   return (
     <motion.header 
-      className="fixed top-0 left-0 right-0 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 shadow-xl overflow-hidden border-b border-gray-700 z-50"
+      className={`fixed left-0 right-0 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 shadow-2xl overflow-hidden border-b border-gray-700 z-40 transition-all duration-300 ${
+        hasTopInfoBar ? 'top-[60px]' : 'top-0'
+      }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
@@ -52,7 +58,7 @@ export function Header() {
               <span className="text-2xl font-bold text-white tracking-wide">
                 FUTURE<span className="text-primary bg-gradient-to-r from-primary to-yellow-400 bg-clip-text text-transparent">BUILD</span>
               </span>
-              <div className="text-xs text-gray-100 font-medium tracking-widest">CONSTRUCTION</div>
+              <div className="text-xs text-gray-400 font-medium tracking-widest">CONSTRUCTION</div>
             </div>
           </motion.div>
 
@@ -73,7 +79,7 @@ export function Header() {
               >
                 <span className="relative z-10">{item}</span>
                 <motion.div
-                  className="absolute inset-0 from-primary/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   layoutId="navbar-hover"
                 />
               </motion.a>
