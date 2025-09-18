@@ -29,8 +29,8 @@ export function App() {
     <div className="flex flex-col min-h-screen bg-white">
       <TopInfoBar isVisible={showTopInfoBar} />
       <Header hasTopInfoBar={showTopInfoBar} />
-      <main className={`flex-grow transition-all duration-300 ${showTopInfoBar ? 'pt-[140px]' : 'pt-[80px]'}`}>
-        <HeroSection />
+      <main className="flex-grow">
+        <HeroSection hasTopInfoBar={showTopInfoBar} />
         <ServicesSection />
         <ProjectsSection />
         <AboutSection />

@@ -55,7 +55,7 @@ export function HeroSection() {
         />
       </div>
 
-      <div className="container mx-auto px-6 py-32 md:py-40 lg:py-48 relative z-10 flex items-center min-h-screen">
+      <div className="container mx-auto px-8 py-32 md:py-42 lg:py-60 relative z-10 flex items-center min-h-screen">
         <div className="max-w-4xl">
           {/* Enhanced Typography */}
           <motion.div

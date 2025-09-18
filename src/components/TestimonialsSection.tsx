@@ -8,7 +8,7 @@ export function TestimonialsSection() {
       name: 'Michael Johnson',
       role: 'Homeowner',
       company: 'Private Residence',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80',
+      image: null, // Remove problematic image
       quote:
         "FUTUREBUILD Construction transformed our vision into reality. Their attention to detail and quality craftsmanship exceeded our expectations. We couldn't be happier with our new home!",
       stars: 5,
@@ -18,7 +18,7 @@ export function TestimonialsSection() {
       name: 'Sarah Williams',
       role: 'Business Owner',
       company: 'Williams Enterprises',
-      image: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80',
+      image: null, // Remove problematic image
       quote:
         'Working with FUTUREBUILD on our commercial project was a seamless experience. They were professional, communicative, and delivered on time and within budget. I highly recommend their services.',
       stars: 5,
@@ -28,7 +28,7 @@ export function TestimonialsSection() {
       name: 'David Rodriguez',
       role: 'Property Developer',
       company: 'Rodriguez Development',
-      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80',
+      image: null, // Remove problematic image
       quote:
         "As a developer, I've worked with many construction companies, but FUTUREBUILD stands out for their reliability and quality. They've become our go-to partner for all our development projects.",
       stars: 5,
@@ -179,11 +179,12 @@ export function TestimonialsSection() {
                   whileHover={{ scale: 1.1 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
-                  <img
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    className="w-16 h-16 rounded-full object-cover mr-4 border-4 border-white shadow-lg"
-                  />
+                  {/* Avatar with Initials */}
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-yellow-400 mr-4 border-4 border-white shadow-lg flex items-center justify-center">
+                    <span className="text-white font-bold text-lg">
+                      {testimonial.name.split(' ').map(n => n[0]).join('')}
+                    </span>
+                  </div>
                   <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-2 border-white flex items-center justify-center">
                     <div className="w-2 h-2 bg-white rounded-full"></div>
                   </div>
