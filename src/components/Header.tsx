@@ -16,7 +16,7 @@ export function Header({ hasTopInfoBar }: HeaderProps) {
 
   return (
     <motion.header 
-      className={`fixed left-0 right-0 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 shadow-2xl overflow-hidden border-b border-gray-700 z-40 transition-all duration-300 ${
+      className={`fixed left-0 right-0 bg-black shadow-2xl overflow-hidden border-b border-gray-700 z-40 transition-all duration-300 ${
         hasTopInfoBar ? 'top-[60px]' : 'top-0'
       }`}
       initial={{ y: -100 }}

@@ -1,11 +1,15 @@
 import { motion } from 'framer-motion'
 import { fadeIn, textVariant } from '../utils/motionVariants'
 
-export function HeroSection() {
+interface HeroSectionProps {
+  hasTopInfoBar: boolean
+}
+
+export function HeroSection({ hasTopInfoBar }: HeroSectionProps) {
   return (
     <motion.section 
       id="home" 
-      className="w-full min-h-screen bg-gradient-to-br from-black via-gray-900 to-black relative overflow-hidden"
+      className="w-full h-screen bg-gradient-to-br from-black via-gray-900 to-black relative overflow-hidden"
       variants={fadeIn('up', 0)}
       initial="hidden"
       animate="show"
@@ -55,7 +59,9 @@ export function HeroSection() {
         />
       </div>
 
-      <div className="container mx-auto px-8 py-32 md:py-42 lg:py-60 relative z-10 flex items-center min-h-screen">
+      <div className={`container mx-auto px-8 relative z-10 flex items-center min-h-screen transition-all duration-300 ${
+        hasTopInfoBar ? 'pt-[140px] pb-32' : 'pt-[80px] pb-32'
+      }`}>
         <div className="max-w-4xl">
           {/* Enhanced Typography */}
           <motion.div
@@ -169,38 +175,6 @@ export function HeroSection() {
                 />
               </motion.svg>
             </motion.a>
-          </motion.div>
-
-          {/* Stats Section */}
-          <motion.div
-            variants={fadeIn('up', 0.7)}
-            initial="hidden"
-            whileInView="show"
-            viewport={{
-              once: true,
-              amount: 0.25,
-            }}
-            className="grid grid-cols-3 gap-8 mt-16 pt-12 border-t border-gray-700/50"
-          >
-            {[
-              { number: '500+', label: 'Projects Completed' },
-              { number: '15+', label: 'Years Experience' },
-              { number: '100%', label: 'Client Satisfaction' },
-            ].map((stat, index) => (
-              <motion.div
-                key={index}
-                className="text-center"
-                whileHover={{ scale: 1.05 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                <div className="text-2xl md:text-3xl font-bold text-primary mb-2">
-                  {stat.number}
-                </div>
-                <div className="text-sm md:text-base text-gray-400 font-medium">
-                  {stat.label}
-                </div>
-              </motion.div>
-            ))}
           </motion.div>
         </div>
       </div>
