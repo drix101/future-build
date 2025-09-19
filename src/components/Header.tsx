@@ -16,12 +16,21 @@ export function Header({ hasTopInfoBar }: HeaderProps) {
 
   return (
     <motion.header 
-      className={`fixed left-0 right-0 bg-black shadow-2xl overflow-hidden border-b border-gray-700 z-40 transition-all duration-300 ${
-        hasTopInfoBar ? 'top-[60px]' : 'top-0'
+      className={`fixed left-0 right-0 bg-black shadow-2xl overflow-hidden border-b border-gray-700 transition-all duration-500 ease-in-out ${
+        hasTopInfoBar 
+          ? 'top-[58px] lg:top-[60px] z-40' // Mobile: below social icons, Desktop: below full TopInfoBar
+          : 'top-0 z-50' // Always at top when TopInfoBar is hidden
       }`}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
+      initial={{ opacity: 1 }}
+      animate={{ 
+        opacity: 1,
+        y: 0
+      }}
+      transition={{ duration: 0.5, ease: "easeInOut" }}
+      style={{
+        transform: 'translateZ(0)', // Force hardware acceleration
+        willChange: 'transform, top' // Optimize for position changes
+      }}
     >
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
@@ -49,8 +58,10 @@ export function Header({ hasTopInfoBar }: HeaderProps) {
                 className="drop-shadow-md"
               >
                 <path
-                  d="M12.5 37.5L25 25L37.5 37.5V12.5L25 25L12.5 12.5V37.5Z"
+                  d="M8 42L25 25L42 42V8L25 25L8 8V42Z"
                   fill="#000000"
+                  strokeWidth="1"
+                  stroke="#000000"
                 />
               </svg>
             </div>

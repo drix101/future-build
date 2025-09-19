@@ -13,15 +13,35 @@ export function App() {
   const [showTopInfoBar, setShowTopInfoBar] = useState(true)
 
   useEffect(() => {
+    let ticking = false
+
     const handleScroll = () => {
-      const scrollPosition = window.scrollY
-      const heroSectionHeight = window.innerHeight * 0.8 // Approximate hero section height
-      
-      // Hide TopInfoBar when scrolled past hero section
-      setShowTopInfoBar(scrollPosition < heroSectionHeight)
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const scrollPosition = window.scrollY
+          const heroSectionHeight = window.innerHeight * 0.8 // Approximate hero section height
+          
+          // Hide TopInfoBar when scrolled past hero section
+          const shouldShowTopInfoBar = scrollPosition < heroSectionHeight
+          
+          // Only update state if it actually changed to prevent unnecessary re-renders
+          setShowTopInfoBar(prev => {
+            if (prev !== shouldShowTopInfoBar) {
+              return shouldShowTopInfoBar
+            }
+            return prev
+          })
+          
+          ticking = false
+        })
+        ticking = true
+      }
     }
 
-    window.addEventListener('scroll', handleScroll)
+    // Initial check
+    handleScroll()
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 

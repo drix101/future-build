@@ -46,18 +46,20 @@ export function Footer() {
             >
               <div className="flex items-center">
                 <div className="mr-3 p-2 bg-gradient-to-br from-primary to-yellow-400 rounded-xl shadow-lg group-hover:shadow-primary/25 transition-all duration-300">
-                  <svg
-                    width="50"
-                    height="50"
-                    viewBox="0 0 50 50"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="drop-shadow-md"
-                  >
-                    <path
-                      d="M12.5 37.5L25 25L37.5 37.5V12.5L25 25L12.5 12.5V37.5Z"
-                      fill="#000000"
-                    />
+              <svg
+                width="40"
+                height="40"
+                viewBox="0 0 50 50"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="drop-shadow-md"
+              >
+                <path
+                  d="M8 42L25 25L42 42V8L25 25L8 8V42Z"
+                  fill="#000000"
+                  strokeWidth="1"
+                  stroke="#000000"
+                />
                   </svg>
                 </div>
                 <div>
@@ -270,11 +272,11 @@ export function Footer() {
             <div className="space-y-3">
               <div className="flex items-center justify-between">
                 <span className="text-gray-300">Monday - Friday</span>
-                <span className="text-primary font-semibold">8:00 AM - 5:00 PM</span>
+                <span className="text-primary font-semibold">9:00 AM - 5:00 PM</span>
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-gray-300">Saturday</span>
-                <span className="text-primary font-semibold">9:00 AM - 2:00 PM</span>
+                <span className="text-primary font-semibold">9:00 AM - 3:00 PM</span>
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-gray-300">Sunday</span>
@@ -289,6 +291,7 @@ export function Footer() {
                 <span className="text-primary font-bold">24/7 Emergency</span>
               </div>
               <p className="text-gray-300 text-sm">For urgent construction emergencies, call our emergency hotline.</p>
+              <p className="text-yellow-300 text-sm">Phone: +1 (816) 000-0000</p>
             </div>
           </motion.div>
         </motion.div>
@@ -306,25 +309,25 @@ export function Footer() {
         >
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-4 md:mb-0">
-              <p className="text-gray-400 text-center md:text-left">
-                © 2024 FUTUREBUILD Construction. All rights reserved.
+              <p className="text-yellow-400 text-center md:text-left">
+                © 2025 FUTUREBUILD Construction. All rights reserved.
               </p>
-              <p className="text-gray-500 text-sm text-center md:text-left mt-1">
-                Licensed, Bonded & Insured | License #FB-2024-001
+              <p className="text-yellow-500 text-sm text-center md:text-left mt-1">
+                Licensed, Bonded & Insured | License #FB-2025-001
               </p>
             </div>
             
             <div className="flex items-center space-x-6">
               <motion.a
                 href="#"
-                className="text-gray-400 hover:text-primary transition-colors duration-300 text-sm"
+                className="text-gray-100 hover:text-primary transition-colors duration-300 text-sm"
                 whileHover={{ y: -2 }}
               >
                 Privacy Policy
               </motion.a>
               <motion.a
                 href="#"
-                className="text-gray-400 hover:text-primary transition-colors duration-300 text-sm"
+                className="text-gray-100 hover:text-primary transition-colors duration-300 text-sm"
                 whileHover={{ y: -2 }}
               >
                 Terms of Service
